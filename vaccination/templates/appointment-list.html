@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+ <section class="py-5  container">
+         <div class="row py-2">
+                <div class="col-lg-12 col-md-8 mx-auto">
+
+
+                	<h3>Available Appointments</h3>
+                	{% if message|length == 0 %}
+			{% for appointment in appointments %}
+				<div class=" py-1">
+				  <a class="list-group-item list-group-item-action active" type="button" data-bs-toggle="collapse" href="#medic-dw-{{ appointment.0.medic_ssn }}">
+				  	<h3 class="fw-bold">
+				    {{appointment.0.medic_fname}} {{appointment.0.medic_lname}}
+				  </h3>
+				<h6 class="card-subtitle mb-2 text-white">{{appointment.0.medic_place}} </h6>
+				<h6 class="card-subtitle mb-2 text-white">{{appointment.0.medic_addr}} </h6>
+				<h6 class="card-subtitle mb-2 text-white">{{appointment.0.medic_phone}} </h6>
+				</a>
+				
+				 <div class="collapse" id="medic-dw-{{ appointment.0.medic_ssn }}">
+				  {% for d in appointment.1 %}
+					<form action="" method="POST">
+
+						<div class="list-group">
+						{% csrf_token %}
+						<input type="submit" class="list-group-item list-group-item-action"" value="{{d|date:"N jS G:i"}}"/>
+						<input type="hidden" name="medic_ssn" value="{{appointment.0.medic_ssn}}">
+						<input type="hidden" name="date" value="{{d|date:"Y-m-d H:i:s"}}">
+						</div>
+					</form>
+				{% endfor %}
+				  </div>
+			</div>	
+			{% endfor %}
+{% else %}
+	<h1>Registration successfull </h1>
+{% endif %}
+{% if appointments|length == 0 %}
+	<h3>No medics available!</h3>
+{% endif %}
+{% endblock %}
+                </div>
+         </div>
+</section>

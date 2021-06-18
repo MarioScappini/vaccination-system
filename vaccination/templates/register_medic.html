@@ -1,0 +1,8 @@
+<h1>Register Medic</h1>
+<form action="" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+
+            <input type="submit" name="Confirm" class="btn btn-primary">
+</form>
+ <h4>{{sucess}}</h4>

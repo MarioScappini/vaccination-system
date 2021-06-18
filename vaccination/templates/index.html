@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- HEADER -->
+    <header class="main-header">
+      <div class="background-overlay py-5">
+        <div class="container">
+          <div class="row d-flex h-100">
+            <div class="col-lg-6 col-md-8 mx-auto">
+          
+              <section id="newsletter" class="bg-light py-5">
+                <div class="container">
+                  <div class="row justify-content-md-center">
+                    
+                    <div class="col-lg-6 text-center">
+                      <h1 class="h3 mb-3 fw-normal">Enter your data</h1>
+                    {% if message|length > 0 %}
+                          <div class="alert alert-danger" role="alert">
+                          {{message}}
+                          </div>
+                    {%  endif %}
+                    <form action="" method="POST">
+                      {% csrf_token %}
+                      {{form}}
+                      <br/>
+                      <input type="submit" name="Confirm"  class="w-100 btn btn-lg btn-primary">
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </section>     
+           
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+{% endblock %}
+
+{% block section %}
+<section class="py-5 bg-light ">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card text-center border-primary">
+              <div class="card-body">
+                <h3>Step one</h3>
+                <p>
+                  Submit your email and your Identity Card number
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card text-white text-center bg-primary">
+              <div class="card-body">
+                <h3>Step Two</h3>
+                <p>
+                  See the options available for vacunation
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card text-center border-primary">
+              <div class="card-body">
+                <h3>Step Three</h3>
+                <p>
+                  Select and confirm the place and date for vaccine
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card text-white text-center bg-primary">
+              <div class="card-body">
+                <h3>Step Four</h3>
+                <p>
+                  Go to vaccination place and be aware for the second dose
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}

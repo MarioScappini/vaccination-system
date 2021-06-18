@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ <section class="py-5  container">
+         <div class="row py-2">
+                <div class="col-lg-8 col-md-8 mx-auto">
+                     {% if available_vaccines|length != 0 %}
+                        <h1 class="text-center">Available Vaccines</h1>
+                         <section class="py-3 container">
+                                  <div class="row py-2">
+                                        <div class="col-lg-8 col-md-8 mx-auto">
+                                        {% for vaccine in available_vaccines %}
+                                            <div class="card">
+                                              <div class="card-body">
+                                                <h5 class="card-title fw-bold">{{vaccine.vaccine_id.vaccine_name}}</h5>
+                                                <h6 class="card-subtitle mb-2 text-muted">Effectivity: {{vaccine.vaccine_id.vaccine_effectivity}}</h6>
+                                                <h6 class="card-subtitle mb-2 text-muted">Number of Total Doses: {{vaccine.vaccine_id.vaccine_no_of_shots}}</h6>
+                                              </div>
+                                              <div class="card-body">
+                                                <a href="/appointment/{{ssn}}/{{dose}}/{{place_id}}/{{vaccine.vaccine_id.vaccine_id}}">Choose this Vaccine</a> 
+                                              </div>
+                                            </div> 
+                                        {% endfor %}  
+                                        </div>
+                                </div>
+                         </section>  
+                        {% else %}
+                        <h1>No vaccines are currently available</h1>
+                        {%  endif %}  
+  
+        
+                </div>
+        </div>
+ </section>
+{% endblock %}
+

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+  <header class="main-header">
+      <div class="background-overlay py-5">
+        <div class="container">
+          <div class="row d-flex h-100">
+            <div class="col-lg-6 col-md-8 mx-auto">
+          
+              <section id="newsletter" class="bg-light py-5">
+                <div class="container">
+                  <div class="row justify-content-md-center">
+                    
+                    <div class="col-lg-6 text-center">
+                      <h1 class="h3 mb-3 fw-normal">Enter your data</h1>
+                    {% if message|length > 0 %}
+                          <div class="alert alert-success" role="alert">
+                          {{message}}
+                          </div>
+                           <a href="{{url}}">Register for an appointment!</a>
+                    {% else %}
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            {{form}}
+                            <br/>
+                            <input type="submit" name="Confirm"  class="w-100 btn btn-lg btn-primary">
+                        </form>
+                    {%  endif %}
+                   
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </section>     
+           
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+
+
+
+{% endblock %}

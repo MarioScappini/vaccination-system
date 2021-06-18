@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block content %}
+
+ <section class="py-5 container">
+     <div class="row py-2">
+        <div class="col-lg-8 col-md-8 mx-auto">
+             {% if places|length != 0 %}
+                        <h1 class="text-center fw-thin">Available Places</h1>
+                         <section class="py-3 container">
+                             <div class="row py-2">
+                                <div class="col-lg-8 col-md-8 mx-auto">
+                                {% for place in places %}
+                            <div class="card">
+                              <div class="card-body">
+                                <h5 class="card-title fw-bold">{{place.place_name}}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Address: {{place.place_addr}}</h6>
+                              </div>
+                              <div class="card-body">
+                                <a href="/appointment/{{ ssn }}/{{ dose }}/{{ place.place_id }}/">Choose this Place</a> 
+                              </div>
+                            </div> 
+                        {% endfor %} 
+                                </div>
+                            </div>
+                         </section>
+        {%  endif %}
+        </div>
+    </div>
+    <div class="row py-lg-5">
+        <div class="col-lg-8 col-md-8 mx-auto">
+             {% if appointments|length != 0 %}
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                          <th scope="col">Vaccine Name</th>
+                          <th scope="col">Appointment Date</th>
+                          <th scope="col">Place</th>
+                          <th scope="col">Dose #</th>
+                          <th scope="col">Medic</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for appointment in appointments %}
+                        <tr>
+                            <td>{{ appointment.vaccine_name}}</td>
+                            <td>{{appointment.appointment_date}}</td>
+                            <td>{{appointment.place}}</td>
+                            <td>{{appointment.shot_no}}</td>
+                            <td>{{appointment.medic_ssn}}</td>
+                        </tr>
+                        {% endfor %}
+                  </tbody>
+                </table>
+            {% endif %}
+        </div>
+    </div>
+ </section>
+
+       
+    
+      
+    
+
+{% endblock %}
