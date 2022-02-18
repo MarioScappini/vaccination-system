@@ -1,0 +1,6 @@
+# vaccination-system
+Nowadays many countries are, or are in process, of deploying their mass vaccination programs, for the control of the ongoing COVID-19 pandemic. Past experiences of implementing mass inoculation programs has been proven to be a massive task with many factors to take in account in order to make it as efficient and fast as possible.
+The objective of this project is to solve one of the issues of the mass vaccination programs, scheduling of citizens for vaccination, by implementing and deploying an open source vaccination system that can be used and modified by any country or organization.
+
+The proposed solution consists of a web application. The backend of the application was developed with Django (Python 3.5). While, the frontend of the application was developed using the Django templates, html, css, javascript and the components of Bootstrap. Finally, the database was implemented using PostgreSql. The structure and of the database are shown in Figure 1.1 and Figure 1.2. Furthermore the code used to implement the database can be shown in Figure 1.3. The Database was built using the Django models system where you define a class that represents a table, inside each class you specify the attributes of the relation and the characteristics such as ‘not null’, ‘primary key’ and the relationships with other relations.
+
